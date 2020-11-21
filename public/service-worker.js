@@ -6,33 +6,38 @@ if (workbox) {
   console.log(`Workbox berhasil dimuat`);
 } else console.log(`Workbox gagal dimuat`);
 
-workbox.precaching.precacheAndRoute([
-  { url: "/", revision: "1" },
-  { url: "/nav.html", revision: "1" },
-  { url: "/index.html", revision: "1" },
-  { url: "/article.html", revision: "1" },
-  { url: "/pages/Home.html", revision: "1" },
-  { url: "/pages/Standing.html", revision: "1" },
-  { url: "/pages/Favorite_Teams.html", revision: "1" },
-  { url: "/css/materialize.min.css", revision: "1" },
-  { url: "/css/style.css", revision: "1" },
-  { url: "/css/article.css", revision: "1" },
-  { url: "/js/materialize.min.js", revision: "1" },
-  { url: "/js/nav.js", revision: "1" },
-  { url: "/js/api.js", revision: "1" },
-  { url: "/js/db.js", revision: "1" },
-  { url: "/js/idb.js", revision: "1" },
-  { url: "/js/notif.js", revision: "1" },
-  { url: "/sw.js", revision: "1" },
-  { url: "/push.js", revision: "1" },
-  { url: "/asset/logo/icon225.png", revision: "1" },
-  { url: "/asset/logo/icon256.png", revision: "1" },
-  { url: "/asset/logo/icon512.png", revision: "1" },
-  { url: "/asset/img", revision: "1" },
-  { url: "/manifest.json", revision: "1" },
-  { url: "/favicon.ico", revision: "1" },
-  { url: "/service-worker.js", revision: "1" },
-]);
+workbox.precaching.precacheAndRoute(
+  [
+    { url: "/", revision: "1" },
+    { url: "/nav.html", revision: "1" },
+    { url: "/index.html", revision: "1" },
+    { url: "/article.html", revision: "1" },
+    { url: "/pages/Home.html", revision: "1" },
+    { url: "/pages/Standing.html", revision: "1" },
+    { url: "/pages/Favorite_Teams.html", revision: "1" },
+    { url: "/css/materialize.min.css", revision: "1" },
+    { url: "/css/style.css", revision: "1" },
+    { url: "/css/article.css", revision: "1" },
+    { url: "/js/materialize.min.js", revision: "1" },
+    { url: "/js/nav.js", revision: "1" },
+    { url: "/js/api.js", revision: "1" },
+    { url: "/js/db.js", revision: "1" },
+    { url: "/js/idb.js", revision: "1" },
+    { url: "/js/notif.js", revision: "1" },
+    { url: "/sw.js", revision: "1" },
+    { url: "/push.js", revision: "1" },
+    { url: "/asset/logo/icon225.png", revision: "1" },
+    { url: "/asset/logo/icon256.png", revision: "1" },
+    { url: "/asset/logo/icon512.png", revision: "1" },
+    { url: "/asset/img", revision: "1" },
+    { url: "/manifest.json", revision: "1" },
+    { url: "/favicon.ico", revision: "1" },
+    { url: "/service-worker.js", revision: "1" },
+  ],
+  {
+    ignoreURLParametersMatching: [/.*/],
+  }
+);
 
 workbox.routing.registerRoute(
   new RegExp("https://api.football-data.org/v2"),
